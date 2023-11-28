@@ -1,6 +1,7 @@
 import java.util.Collections;
 import java.util.ArrayList;
 import java.util.List;
+import java.nio.file.*;
 
 int squareSize = 50;
 int x, y;  // Coordinates of the square
@@ -10,6 +11,7 @@ int squaresPerGroup = 2;
 int squaresInCurrentGroup = 0;
 int currentGroup = 0; // Start with the first group
 Table table; // table
+Path path; //path
 int participantNum = 0;
 int tasksCompleted = 0;
 
