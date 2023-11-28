@@ -30,7 +30,13 @@ void setup() {
   fullScreen();
   noStroke();
   
-  table = new Table();
+  path = Paths.get("colorsarefun/data/colors.csv");
+  
+  if (Files.exists(path)) {
+    table = loadTable("colors.csv");
+  } else {
+    table = new Table();
+  }
   
   table.addColumn("participant");
   table.addColumn("background_color");
@@ -122,6 +128,20 @@ void mousePressed() {
       started = true;
       clickTime = millis();
     }
+  }
+}
+
+void keyPressed() {
+  if (char(keyCode) == 'R'){
+    int rowNum = table.getRowCount() - 1;
+    for (int i = 0; i < tasksCompleted; i++) {
+      println(rowNum);
+      table.removeRow(rowNum);
+      rowNum--;
+    }
+    tasksCompleted = squaresPerGroup * 6;
+    participantNum = participantNum - 1;
+    nextSquare();
   }
 }
 
