@@ -57,7 +57,8 @@ void setup() {
 
 void draw() {
   if (started) {
-    background(isWhiteBackground ? 255 : 53,54,58); // Set background color based on the flag
+    color darkmodeColor = color(53,54,58);
+    background(isWhiteBackground ? 255 : darkmodeColor); // Set background color based on the flag
     if (!squareClicked) {
       fill(squareColors.get(currentGroup));
       rect(x, y, squareSize, squareSize);
